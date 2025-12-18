@@ -21,7 +21,7 @@ def home_page():
 
 
     # ----- Top title -----
-    st.html("""<div style="text-align: center;"><h1 style="text-align: center;">👋 Hi! My name is Python</h1></div>""")  # TODO: Add your name
+    st.html("""<div style="text-align: center;"><h1 style="text-align: center;">👋 Hi! My name is Ema Grangeon</h1></div>""")  # TODO: Add your name
 
 
     # ----- Profile image file -----
@@ -40,7 +40,7 @@ def home_page():
 
 
     # ----- Personal title or short description -----
-    current_role = "Current Role and/or Studies or Description"   # TODO: Change this
+    current_role = "Master in Big Data and Analytics"   # TODO: Change this
 
     st.html(f"""<div style="text-align: center;"><h4><i>{current_role}</i></h4></div>""")
 
@@ -52,17 +52,17 @@ def home_page():
 
     # TODO: Modify and adapt the following lines to your info, you can add or remove some details if you want
     st.write("""
-    - 🧑‍💻 I am a <Current Role and/or Studies> 
+    - 🧑‍💻 I am a student
 
-    - 🛩️ prev: <Previous Experience, Background or Studies>
+    - 🛩️ prev: BBA in Business Administration in International Hospitality Business 
 
-    - ❤️ <Your Passion and/or Interests>
+    - ❤️ Racing, eating, traveling
 
-    - 🤖 <Your Personal Projects>
+    - 🤖 N/A
 
-    - 🏂 <Your Hobbies>
+    - 🏂 Drinking
 
-    - 📫 How to reach me: <Your Email>
+    - 📫 emagrangeon13@gmail.com
 
     - 🏠 Barcelona
     """)
