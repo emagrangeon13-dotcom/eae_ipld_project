@@ -126,17 +126,8 @@ if unique_countries_list is not None and len(selected_cities) > 0:
 
     # for city in selected_cities:
     for city in selected_cities:
-        city_df = temps_df[temps_df["City"] == city]
-        city_df_period = city_df[
-            (city_df["Date"] >= start_date) &
-            (city_df["Date"] <= end_date)
-        ]
-        plt.plot(
-            city_df_period["Date"],
-            city_df_period["AvgTemperatureCelsius"],
-            label=city
-        )
-
+        city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]
+        plt.plot(city_df_period["Date"], city_df_period["AvgTemperatureCelsius"], label=city)
     plt.title("Temperature Over Time")
     plt.xlabel("Date")
     plt.ylabel("Temperature (°C)")
@@ -149,28 +140,22 @@ if unique_countries_list is not None and len(selected_cities) > 0:
 
     # TODO: Make a histogram of the temperature reads of a list of selected cities, for the selected time period, 
     # every city has to be its own distribution with a different color.
-fig = plt.figure(figsize=(10, 5))
 
-for city in selected_cities:
-    city_df = temps_df[temps_df["City"] == city]
-    city_df_period = city_df[
-        (city_df["Date"] >= start_date) &
-        (city_df["Date"] <= end_date)
-    ]
-    plt.plot(
-        city_df_period["Date"],
-        city_df_period["AvgTemperatureCelsius"],
-        label=city
-    )
+    fig = plt.figure(figsize=(10, 5))
 
-plt.title("Temperature Over Time")
-plt.xlabel("Date")
-plt.ylabel("Temperature (°C)")
-plt.legend()
+    # for city in selected_cities:
+    for city in selected_cities:
+        city_df = temps_df[temps_df["City"] == city]
+        city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]
+        plt.hist(city_df_period["AvgTemperatureCelsius"], label=city, alpha=0.7)
 
-c.pyplot(fig)
+    plt.title("Temperature Distribution")
+    plt.xlabel("Temperature (°C)")
+    plt.ylabel("Frequency")
 
+    plt.legend()
 
+    c.pyplot(fig)
 
 
 
