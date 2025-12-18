@@ -122,40 +122,51 @@ if unique_countries_list is not None and len(selected_cities) > 0:
     # TODO: Ex 3.7: Plot the temperatures over time for the selected cities for the selected time period,
     # every city has to be its own line with a different color.
 
-    fig = plt.figure(figsize=(10, 5))
+   fig = plt.figure(figsize=(10, 5))
 
-    # for city in selected_cities:
-    for city in selected_cities:
-        city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]
-        plt.plot(city_df_period["Date"], city_df_period["AvgTemperatureCelsius"], label=city)
-    plt.title("Temperature Over Time")
-    plt.xlabel("Date")
-    plt.ylabel("Temperature (°C)")
+for city in selected_cities:
+    city_df = temps_df[temps_df["City"] == city]
+    city_df_period = city_df[
+        (city_df["Date"] >= start_date) &
+        (city_df["Date"] <= end_date)
+    ]
+    plt.plot(
+        city_df_period["Date"],
+        city_df_period["AvgTemperatureCelsius"],
+        label=city
+    )
 
-    plt.legend()
-    
-    c.pyplot(fig)
+plt.title("Temperature Over Time")
+plt.xlabel("Date")
+plt.ylabel("Temperature (°C)")
+plt.legend()
+
+c.pyplot(fig)
 
 
 
     # TODO: Make a histogram of the temperature reads of a list of selected cities, for the selected time period, 
     # every city has to be its own distribution with a different color.
 
-    fig = plt.figure(figsize=(10, 5))
+for city in selected_cities:
+    city_df = temps_df[temps_df["City"] == city]
+    city_df_period = city_df[
+        (city_df["Date"] >= start_date) &
+        (city_df["Date"] <= end_date)
+    ]
+    plt.hist(
+        city_df_period["AvgTemperatureCelsius"],
+        bins=20,
+        alpha=0.6,
+        label=city
+    )
 
-    # for city in selected_cities:
-    for city in selected_cities:
-        city_df = temps_df[temps_df["City"] == city]
-        city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]
-        plt.hist(city_df_period["AvgTemperatureCelsius"], label=city, alpha=0.7)
+plt.title("Temperature Distribution")
+plt.xlabel("Temperature (°C)")
+plt.ylabel("Frequency")
+plt.legend()
 
-    plt.title("Temperature Distribution")
-    plt.xlabel("Temperature (°C)")
-    plt.ylabel("Frequency")
-
-    plt.legend()
-
-    c.pyplot(fig)
+c.pyplot(fig)
 
 
 
