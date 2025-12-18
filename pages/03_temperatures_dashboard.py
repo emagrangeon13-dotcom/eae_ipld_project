@@ -124,6 +124,8 @@ if unique_countries_list is not None and len(selected_cities) > 0:
 
 fig = plt.figure(figsize=(10, 5))
 
+fig = plt.figure(figsize=(10, 5))
+
 for city in selected_cities:
     city_df = temps_df[temps_df["City"] == city]
     city_df_period = city_df[
@@ -147,6 +149,8 @@ c.pyplot(fig)
 
     # TODO: Make a histogram of the temperature reads of a list of selected cities, for the selected time period, 
     # every city has to be its own distribution with a different color.
+
+fig = plt.figure(figsize=(10, 5))
 
 for city in selected_cities:
     city_df = temps_df[temps_df["City"] == city]
