@@ -97,7 +97,10 @@ st.header("Avg Duration of Movies by Year")
 movie_only_df = movies_df[movies_df["type"] == "Movie"] if movies_df is not None else None
 
 if movie_only_df is not None:
-    movies_avg_duration_per_year = movie_only_df.groupby("release_year")["duration"].mean()
+    movie_only_df = movie_only_df.copy()
+    movie_only_df["duration_min"] = movie_only_df["duration"].str.replace(" min", "").astype(int)
+    movies_avg_duration_per_year = movie_only_df.groupby("release_year")["duration_min"].mean()
+
 else:
     movies_avg_duration_per_year = None
 
