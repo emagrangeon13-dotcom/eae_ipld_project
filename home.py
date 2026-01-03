@@ -60,7 +60,7 @@ def home_page():
 
     - 🤖 N/A
 
-    - 🏂 Drinking
+    - 🍺 Drinking
 
     - 📫 emagrangeon13@gmail.com
 
